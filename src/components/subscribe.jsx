@@ -26,7 +26,7 @@ class Subscribe extends Component {
     return (
       <div className="row mb-sm-5 mt-sm-5 mb-5">
         <div className="col-sm-9 mb-sm-5 mx-auto text-center">
-          <h4 className="h4 color-primary">Tertarik untuk bercerita? lagi</h4>
+          <h4 className="h4 color-primary">Tertarik untuk bercerita?</h4>
           <form
             className="form-newsletter halves"
             onSubmit={this.handleSubmit}
