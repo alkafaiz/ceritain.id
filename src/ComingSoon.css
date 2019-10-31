@@ -1,0 +1,39 @@
+/*
+body {
+  background-image: none !important;
+  background-attachment: fixed !important;
+  height: 100%;
+} */
+
+#bg {
+  font-family: "Lato";
+}
+
+#title {
+  font-weight: bold;
+  font-size: 11vh;
+}
+
+#lead {
+  font-weight: 600;
+  color: black !important;
+}
+
+@media screen and (max-width: 425px) {
+  #title {
+    font-size: 7vh !important;
+  }
+  #contact {
+    font-size: 16px !important;
+  }
+}
+@media screen and (max-width: 770px) {
+  #title {
+    font-size: 6vh;
+  }
+}
+@media screen and (max-width: 993px) {
+  #title {
+    font-size: 9.5vh;
+  }
+}

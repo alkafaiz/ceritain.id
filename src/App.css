@@ -1,0 +1,57 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.v-align-ch {
+  display: table-cell;
+  vertical-align: middle;
+}
+img.responsive {
+  max-width: 100%;
+  max-height: 100%;
+}
+.logo-nav {
+  display: block;
+  width: auto;
+  max-height: 50px !important;
+}
+.logo-footer {
+  display: block;
+  width: auto;
+  max-height: 35px !important;
+}
+
+.white {
+  color: white !important;
+}
+
+.contact-item {
+  font-family: "Lato";
+  font-size: 13px !important;
+}
+
+.menu-item-list {
+  font-size: 1rem !important;
+  font-weight: 500;
+}
+@media screen and (max-width: 576px) {
+}
