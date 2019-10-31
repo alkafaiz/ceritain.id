@@ -8,7 +8,8 @@ import About from "./components/about";
 import FAQ from "./components/faq";
 import SignIn from "./components/signin";
 import SignUp from "./components/signup";
-import ForgetPw from "./components/forgotpw";
+import ForgetPw from "./components/forgetpw";
+import ChangePw from "./components/changepw";
 import * as ROUTES from "./constants/routes";
 import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 import { FirebaseContext, withFirebase } from "./components/firebase";
@@ -47,6 +48,7 @@ class App extends React.Component {
           <Route path={ROUTES.SIGN_IN} component={SignInForm} />
           <Route path={ROUTES.SIGN_UP} component={SignUpForm} />
           <Route path={ROUTES.PASSWORD_FORGET} component={ForgetPw} />
+          <Route path={ROUTES.PASSWORD_CHANGE} component={ChangePw} />
           <Footer />
         </Router>
       </React.Fragment>

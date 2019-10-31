@@ -51,19 +51,21 @@ const NavBar = () => {
                 FAQ
               </NavLink>
             </li>
-            <li className="nav-item">
-              <Link
-                className="btn ml-3 btn-filled btn-rounded nav-item"
-                to={ROUTES.SIGN_IN}
-              >
-                Mulai Ceritain
-              </Link>
-            </li>
+
             <AuthUserContext.Consumer>
               {authUser =>
-                authUser && (
+                authUser ? (
                   <li className="nav-item">
                     <SignOutButton />
+                  </li>
+                ) : (
+                  <li className="nav-item">
+                    <Link
+                      className="btn ml-3 btn-filled btn-rounded nav-item"
+                      to={ROUTES.SIGN_IN}
+                    >
+                      Mulai Ceritain
+                    </Link>
                   </li>
                 )
               }

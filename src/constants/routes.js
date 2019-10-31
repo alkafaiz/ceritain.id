@@ -8,3 +8,4 @@ export const PASSWORD_FORGET = "/forget-pw";
 export const ABOUT = "/about";
 export const FAQ = "/faq";
 export const TnC = "/termandconditions";
+export const PASSWORD_CHANGE = "/change-password";
