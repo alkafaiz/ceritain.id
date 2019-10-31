@@ -55,9 +55,27 @@ const NavBar = () => {
             <AuthUserContext.Consumer>
               {authUser =>
                 authUser ? (
-                  <li className="nav-item">
-                    <SignOutButton />
-                  </li>
+                  <React.Fragment>
+                    <li className="nav-item">
+                      <Link
+                        className="btn ml-3 btn-filled btn-rounded nav-item"
+                        to={ROUTES.HOME}
+                      >
+                        Home Page
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        className="btn ml-3 btn-filled btn-rounded nav-item"
+                        to={ROUTES.ACCOUNT}
+                      >
+                        Account
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <SignOutButton />
+                    </li>
+                  </React.Fragment>
                 ) : (
                   <li className="nav-item">
                     <Link

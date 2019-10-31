@@ -3,14 +3,16 @@ import NavBar from "./components/navbar";
 import "./App.css";
 
 import Footer from "./components/footer";
-import Home from "./components/home";
+import LandingPage from "./components/landingpage";
 import About from "./components/about";
 import FAQ from "./components/faq";
 import SignIn from "./components/signin";
 import SignUp from "./components/signup";
 import ForgetPw from "./components/forgetpw";
 import ChangePw from "./components/changepw";
+import HomePage, { AccountPage } from "./components/account";
 import * as ROUTES from "./constants/routes";
+
 import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 import { FirebaseContext, withFirebase } from "./components/firebase";
 import { compose } from "recompose";
@@ -41,14 +43,15 @@ class App extends React.Component {
         <Router>
           <NavBar />
 
-          <Route exact path={ROUTES.LANDING} component={Home} />
-          <Route path={ROUTES.HOME} component={Home} />
+          <Route exact path={ROUTES.LANDING} component={LandingPage} />
+          <Route path={ROUTES.HOME} component={HomePage} />
           <Route path={ROUTES.ABOUT} component={About} />
           <Route path={ROUTES.FAQ} component={FAQ} />
           <Route path={ROUTES.SIGN_IN} component={SignInForm} />
           <Route path={ROUTES.SIGN_UP} component={SignUpForm} />
           <Route path={ROUTES.PASSWORD_FORGET} component={ForgetPw} />
           <Route path={ROUTES.PASSWORD_CHANGE} component={ChangePw} />
+          <Route path={ROUTES.ACCOUNT} component={AccountPage} />
           <Footer />
         </Router>
       </React.Fragment>

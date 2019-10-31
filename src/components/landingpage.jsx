@@ -4,7 +4,7 @@ import Subscribe from "./subscribe";
 import Content from "./content1";
 import bgbannerHeader from "../img/Asset 3.png";
 
-class Home extends Component {
+class LandingPage extends Component {
   componentDidMount() {
     document.title = "Hallo! - Ceritain.id";
   }
@@ -26,4 +26,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default LandingPage;
