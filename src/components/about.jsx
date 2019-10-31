@@ -16,7 +16,7 @@ class About extends Component {
               suasana hatimu, disini.
             </h5>
             <h5 className="h5 mt-5 color-white">
-              karena kamu butuh cerita, yuk
+              karena kamu butuh cerita, yuk!
               <span className="color-primary h5">#ceritainsini</span>
             </h5>
           </div>
