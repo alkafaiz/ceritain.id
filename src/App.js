@@ -10,6 +10,7 @@ import SignIn from "./components/signin";
 import SignUp from "./components/signup";
 import ForgetPw from "./components/forgetpw";
 import ChangePw from "./components/changepw";
+import AdminPage from "./components/admin/adminpage";
 import HomePage, { AccountPage } from "./components/account";
 import * as ROUTES from "./constants/routes";
 
@@ -52,6 +53,7 @@ class App extends React.Component {
           <Route path={ROUTES.PASSWORD_FORGET} component={ForgetPw} />
           <Route path={ROUTES.PASSWORD_CHANGE} component={ChangePw} />
           <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+          <Route path={ROUTES.ADMIN} component={AdminPage} />
           <Footer />
         </Router>
       </React.Fragment>

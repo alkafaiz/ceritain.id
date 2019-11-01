@@ -30,6 +30,12 @@ class SignUp extends Component {
     firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
+        //create user in firebase database
+        return this.props.firebase
+          .user(authUser.user.uid)
+          .set({ username, email });
+      })
+      .then(authUser => {
         /***this.resetstate();*/
         this.props.history.push(LANDING);
       })
