@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { TnC, SIGN_IN, LANDING } from "../constants/routes";
+import { TnC, LANDING } from "../constants/routes";
+import ErrorMessage from "./errormessage";
 
 class SignUp extends Component {
   constructor(props) {
@@ -106,22 +107,7 @@ class SignUp extends Component {
                 >
                   Register
                 </button>
-                {error && (
-                  <div
-                    className="alert alert-danger alert-dismissible"
-                    role="alert"
-                  >
-                    <button
-                      type="button"
-                      className="close"
-                      data-dismiss="alert"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    <strong>No Good!</strong> {error.message}
-                  </div>
-                )}
+                {error && <ErrorMessage message={error.message} />}
               </form>
 
               <p className="mb0">

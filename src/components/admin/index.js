@@ -7,27 +7,36 @@ class AdminPage extends Component {
     super(props);
     this.state = {
       loading: false,
-      users: []
+      users: [],
+      potentialUser: []
     };
   }
 
   componentDidMount() {
     this.setState({ loading: true });
+    this.props.firebase.email_pUserRef().on("value", snapshot => {
+      const pUsersObject = snapshot.val();
+      const pUsersList = Object.keys(pUsersObject).map(key => ({
+        ...pUsersObject[key],
+        uid: key
+      }));
+      this.setState({
+        potentialUser: pUsersList
+      });
+    });
     this.props.firebase.users().on("value", snapshot => {
       const usersObject = snapshot.val();
-      console.log("test ", usersObject);
+
       const usersList = Object.keys(usersObject).map(key => ({
         ...usersObject[key],
         uid: key
       }));
-      console.log("test2 ", usersList);
 
       this.setState({
         users: usersList,
         loading: false
       });
     });
-    console.log(this.state);
   }
 
   componentWillUnmount() {
@@ -35,12 +44,14 @@ class AdminPage extends Component {
   }
   render() {
     console.log(this.state);
-    const { users, loading } = this.state;
+    const { users, loading, potentialUser } = this.state;
     return (
       <div>
         <h1>Admin</h1>
         {loading && <div>Loading ...</div>}
         <UserList users={users} />
+        <br></br>
+        <PotentialUserList pUsers={potentialUser} />
       </div>
     );
   }
@@ -63,4 +74,20 @@ const UserList = ({ users }) => (
     ))}
   </ul>
 );
+
+const PotentialUserList = ({ pUsers }) => (
+  <React.Fragment>
+    <h1>Potential Users</h1>
+    <ul>
+      {pUsers.map(pUser => (
+        <li key={pUser.uid}>
+          <span>
+            <strong>Email:</strong> {pUser.email}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </React.Fragment>
+);
+
 export default withFirebase(AdminPage);

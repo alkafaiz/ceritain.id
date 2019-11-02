@@ -38,9 +38,13 @@ class Firebase {
   };
 
   //*** User API */
-  user = uid => this.db.ref(`users/${uid}`)
+  user = uid => this.db.ref(`users/${uid}`);
 
-  users = () => this.db.ref("users")
+  users = () => this.db.ref("users");
+
+  //*** Potential User API */
+  email_pUserRef = () => this.db.ref("potentialUsers");
+  email_pUsers = () => this.db.ref("potentialUsers");
 }
 
 export default Firebase;
