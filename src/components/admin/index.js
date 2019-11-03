@@ -83,6 +83,7 @@ const PotentialUserList = ({ pUsers }) => (
         <li key={pUser.uid}>
           <span>
             <strong>Email:</strong> {pUser.email}
+            <strong>Date:</strong> {pUser.date}
           </span>
         </li>
       ))}

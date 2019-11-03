@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withFirebase } from "./firebase";
 import SimpleReactValidator from "simple-react-validator";
 import ErrorMessage from "./errormessage";
+import Modal, { ModalTransition } from "@atlaskit/modal-dialog";
 
 class Subscribe extends Component {
   constructor(props) {
@@ -22,6 +23,20 @@ class Subscribe extends Component {
     };
   }
 
+  getTime = () => {
+    const today = new Date();
+    const date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
+    const time =
+      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    const dateTime = date + " " + time;
+    return dateTime;
+  };
+
   resetError = () => {
     this.setState({ error: "" });
   };
@@ -36,7 +51,7 @@ class Subscribe extends Component {
       firebase
         .email_pUserRef()
         .push()
-        .set({ email })
+        .set({ email, date: this.getTime() })
         // .email_pUser(email)
         // .set({ email })
         .catch(error => {
@@ -57,7 +72,8 @@ class Subscribe extends Component {
     this.setState({ email: event.target.value });
   };
   render() {
-    const { error } = this.state;
+    const { error, isOpen } = this.state;
+    const actions = [{ text: "Close", onClick: this.close }];
     return (
       <React.Fragment>
         <div className="row mb-sm-3 mt-sm-5 mb-2">
