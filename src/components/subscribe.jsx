@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withFirebase } from "./firebase";
 import SimpleReactValidator from "simple-react-validator";
 import ErrorMessage from "./errormessage";
-import Modal, { ModalTransition } from "@atlaskit/modal-dialog";
 
 class Subscribe extends Component {
   constructor(props) {
