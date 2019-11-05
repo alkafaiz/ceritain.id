@@ -20,6 +20,10 @@ nav.transparent.menu li a {
   color: #000;
 }
 
+.card-body .icon {
+  max-height: 3.5rem !important;
+}
+
 .lead {
   font-size: 1.5rem !important;
   line-height: 1.3em !important;
@@ -76,7 +80,7 @@ h2.h2 {
 
 .card {
   background-color: rgba(255, 255, 255, 0.2);
-  opacity: 0.7;
+  opacity: 1;
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -86,12 +90,11 @@ h2.h2 {
   opacity: 0.3;
 }
 
-.card:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-  opacity: 1;
-  cursor: pointer;
+.card-body .card-text {
+  font-family: "Work Sans" !important;
+  /* font-weight: Bold !important; */
+  font-size: 15px !important;
 }
-
 .card-title {
   font-family: "Work Sans" !important;
   font-weight: Bold !important;

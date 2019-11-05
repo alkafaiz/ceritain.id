@@ -78,12 +78,18 @@ const NavBar = () => {
                   </React.Fragment>
                 ) : (
                   <li className="nav-item">
-                    <Link
+                    <a
+                      className="btn ml-3 btn-filled btn-rounded nav-item inner-link"
+                      href="#subscribe"
+                    >
+                      Mulai Ceritain
+                    </a>
+                    {/* <Link
                       className="btn ml-3 btn-filled btn-rounded nav-item"
                       to={ROUTES.SIGN_IN}
                     >
                       Mulai Ceritain
-                    </Link>
+                    </Link> */}
                   </li>
                 )
               }

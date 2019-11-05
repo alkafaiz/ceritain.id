@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import picDevice from "../img/Asset 18.png";
+import picCerita from "../img/Asset 19.png";
+import picMoodTrack from "../img/Asset 20.png";
+import picKonseling from "../img/Asset 21.png";
 
 class Content1 extends Component {
   state = {
@@ -60,50 +63,51 @@ class Content1 extends Component {
         <div className="container">
           <div className="row mt-sm-5 mt-3">
             <div className="col-md-4 ">
-              <div
-                onClick={event => this.changeMessage(event, "A")}
-                className={this.state.card1}
-              >
+              <div className="card text-center color-white">
                 <div className="card-body">
-                  <i className="mt-3 ti ti-face-smile icon"></i>
+                  <img
+                    src={picCerita}
+                    alt=""
+                    className="responsive icon mb-2"
+                  />
+
                   <h5 className="card-title lead bold">Berbagi Cerita</h5>
                   <p className="card-text">
-                    Dukungan akan selalu datang, kamu hanya perlu cerita
+                    Dukungan akan selalu datang,<br></br>kamu hanya perlu cerita
                   </p>
                 </div>
-                <i className={this.state.class}></i>
               </div>
             </div>
             <div className="col-md-4">
-              <div
-                onClick={event => this.changeMessage(event, "B")}
-                className={this.state.card2}
-              >
+              <div className="card text-center color-white">
                 <div className="card-body">
-                  <i className="mt-3 ti ti-face-smile icon"></i>
+                  <img
+                    src={picMoodTrack}
+                    alt=""
+                    className="responsive icon mb-2"
+                  />
                   <h5 className="card-title lead bold">Mood Track</h5>
                   <p className="card-text">
                     Catat suasana hati mu secara berkala, karena hatimu perlu
                     dipahami
                   </p>
                 </div>
-                <i className="ti ti-angle-down bounce-top"></i>
               </div>
             </div>
             <div className="col-md-4">
-              <div
-                onClick={event => this.changeMessage(event, "C")}
-                className={this.state.card3}
-              >
+              <div className="card text-center color-white">
                 <div className="card-body">
-                  <i className="mt-3 ti ti-face-smile icon"></i>
+                  <img
+                    src={picKonseling}
+                    alt=""
+                    className="responsive icon mb-2"
+                  />{" "}
                   <h5 className="card-title lead bold">Konseling</h5>
                   <p className="card-text">
                     Lelah ceritain masalah di medsos tapi di-judge netizen? kini
                     tak lagi!
                   </p>
                 </div>
-                <i className="ti ti-angle-down bounce-top"></i>
               </div>
             </div>
           </div>

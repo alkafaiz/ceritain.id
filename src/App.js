@@ -48,12 +48,12 @@ class App extends React.Component {
           <Route path={ROUTES.HOME} component={HomePage} />
           <Route path={ROUTES.ABOUT} component={About} />
           <Route path={ROUTES.FAQ} component={FAQ} />
-          <Route path={ROUTES.SIGN_IN} component={SignInForm} />
+          {/* <Route path={ROUTES.SIGN_IN} component={SignInForm} />
           <Route path={ROUTES.SIGN_UP} component={SignUpForm} />
           <Route path={ROUTES.PASSWORD_FORGET} component={ForgetPw} />
           <Route path={ROUTES.PASSWORD_CHANGE} component={ChangePw} />
           <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-          <Route path={ROUTES.ADMIN} component={AdminPage} />
+          <Route path={ROUTES.ADMIN} component={AdminPage} /> */}
           <Footer />
         </Router>
       </React.Fragment>

@@ -6,7 +6,7 @@ class About extends Component {
   }
   render() {
     return (
-      <div className="container">
+      <div className="container fade-in-bottom">
         <div className="row mt-5">
           <div className="col text-center">
             <h1 className="big-text color-primary mb-5">Tentang Ceritain</h1>

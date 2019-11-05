@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { TnC, LANDING } from "../constants/routes";
 import ErrorMessage from "./errormessage";
+import { Grow } from "@material-ui/core";
 
 class SignUp extends Component {
   constructor(props) {
@@ -60,64 +61,71 @@ class SignUp extends Component {
       passwordOne === "" ||
       username === "" ||
       email === "";
+    const intrance = true;
     return (
-      <section className="container">
-        <div className="row">
-          <div className="col-md-8 col-lg-5 mx-auto">
-            <div className="feature bordered text-center">
-              <h4 className="h3 mb24">Register Here</h4>
+      <Grow
+        in={intrance}
+        style={{ transformOrigin: "0 0 0" }}
+        {...(intrance ? { timeout: 1000 } : {})}
+      >
+        <section className="container">
+          <div className="row">
+            <div className="col-md-8 col-lg-5 mx-auto">
+              <div className="feature bordered text-center">
+                <h4 className="h3 mb24">Register Here</h4>
 
-              <form className="text-left" onSubmit={this.onSubmit}>
-                <input
-                  className="mb8"
-                  type="text"
-                  name="username"
-                  value={username}
-                  onChange={this.onChange}
-                  placeholder="Username"
-                />
-                <input
-                  className="mb8"
-                  type="text"
-                  name="email"
-                  value={email}
-                  onChange={this.onChange}
-                  placeholder="Email Address"
-                />
-                <input
-                  className="mb8"
-                  type="password"
-                  name="passwordOne"
-                  value={passwordOne}
-                  onChange={this.onChange}
-                  placeholder="Password"
-                />
-                <input
-                  className="mb8"
-                  type="password"
-                  name="passwordTwo"
-                  value={passwordTwo}
-                  onChange={this.onChange}
-                  placeholder="Confirm Password"
-                />
-                <button
-                  className="btn mb8 color-white"
-                  type="submit"
-                  disabled={isInvalid}
-                >
-                  Register
-                </button>
-                {error && <ErrorMessage message={error.message} />}
-              </form>
+                <form className="text-left" onSubmit={this.onSubmit}>
+                  <input
+                    className="mb8"
+                    type="text"
+                    name="username"
+                    value={username}
+                    onChange={this.onChange}
+                    placeholder="Username"
+                  />
+                  <input
+                    className="mb8"
+                    type="text"
+                    name="email"
+                    value={email}
+                    onChange={this.onChange}
+                    placeholder="Email Address"
+                  />
+                  <input
+                    className="mb8"
+                    type="password"
+                    name="passwordOne"
+                    value={passwordOne}
+                    onChange={this.onChange}
+                    placeholder="Password"
+                  />
+                  <input
+                    className="mb8"
+                    type="password"
+                    name="passwordTwo"
+                    value={passwordTwo}
+                    onChange={this.onChange}
+                    placeholder="Confirm Password"
+                  />
+                  <button
+                    className="btn mb8 color-white"
+                    type="submit"
+                    disabled={isInvalid}
+                  >
+                    Register
+                  </button>
+                  {error && <ErrorMessage message={error.message} />}
+                </form>
 
-              <p className="mb0">
-                By signing up, you agree to our
-                <Link to={TnC}>&nbsp;Terms of Use</Link>
-              </p>
+                <p className="mb0">
+                  By signing up, you agree to our
+                  <Link to={TnC}>&nbsp;Terms of Use</Link>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Grow>
     );
   }
 }
