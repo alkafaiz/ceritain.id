@@ -16,9 +16,9 @@ body {
   min-height: 100% !important;
 }
 
-footer {
-  position: absolute;
-  bottom: 0px;
+.footer-item-text {
+  font-size: 1.1em;
+  font-family: "Lato";
 }
 
 code {

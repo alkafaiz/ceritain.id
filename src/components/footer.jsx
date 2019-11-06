@@ -20,16 +20,22 @@ class Footer extends Component {
           <div className="col-sm-7 ">
             <ul className="contact-item color-white list-inline pt-2 text-right mb-0 ">
               <li className="list-inline-item">
-                <i className="ti ti-headphone-alt "></i>
-                <span>&nbsp;&nbsp;+02736283947</span>
+                <i className="ti ti-headphone-alt"></i>
+                <span className="footer-item-text">
+                  &nbsp;&nbsp;+6281259333719
+                </span>
               </li>
               <li className="list-inline-item">
                 <i className="ti ti-email"></i>
-                <span>&nbsp;&nbsp;ceritain.dev@gmail.com</span>
+                <span className="footer-item-text">
+                  &nbsp;&nbsp;ceritain.dev@gmail.com
+                </span>
               </li>
               <li className="list-inline-item">
                 <i className="ti ti-instagram"></i>
-                <span>&nbsp;&nbsp;@ceritainid</span>
+                <span className="footer-item-text">
+                  &nbsp;&nbsp;@ceritainid
+                </span>
               </li>
             </ul>
           </div>

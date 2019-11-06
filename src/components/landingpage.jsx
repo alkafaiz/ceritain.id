@@ -18,7 +18,7 @@ class LandingPage extends Component {
           className="responsive banner-bg col-11"
           alt=""
         /> */}
-        <header id="bg-hdr">
+        <header id="bg-hdr" className="fade-in-up">
           <Header />
         </header>
 
