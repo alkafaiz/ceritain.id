@@ -5,12 +5,80 @@ import { Link, NavLink } from "react-router-dom";
 import * as ROUTES from "../constants/routes";
 import SignOutButton from "./signout";
 import { AuthUserContext } from "./session";
+import Modal from "@material-ui/core/Modal";
+import { makeStyles } from "@material-ui/core/styles";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import Slide from "@material-ui/core/Slide";
 
 //stateless functional component
 
 const NavBar = () => {
+  const useStyles = makeStyles(theme => ({
+    modal: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    },
+    paper: {
+      position: "absolute",
+      width: 400,
+      backgroundColor: theme.palette.background.paper,
+      border: "2px solid #4864ad",
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3)
+      // top: "50%",
+      // left: "50%",
+      // transform: `translate(-50%, -50%)`
+    }
+  }));
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <React.Fragment>
+      <Modal
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+        className={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500
+        }}
+      >
+        <Slide direction="up" in={open} mountOnEnter unmountOnExit>
+          <div className={classes.paper}>
+            <h3 id="simple-modal-title" className="h2 color-primary">
+              Kita akan segera hadir!
+            </h3>
+            <p id="simple-modal-description">
+              Yuk, jadi salah satu orang pertama untuk tau tentang peluncuran
+              kita.
+            </p>
+            <form>
+              <input
+                type="text"
+                name="email"
+                className="mb0"
+                placeholder="Tulis alamat email"
+              />
+
+              <button type="submit" className="mb0 btn">
+                Kabari aku!
+              </button>
+            </form>
+          </div>
+        </Slide>
+      </Modal>
       <nav className="mt-2 bg-transparent pr-3 pl-3 pr-sm-5 pl-sm-5 navbar navbar-expand-lg navbar-light">
         <Link to={ROUTES.LANDING} className="navbar-brand">
           <img
@@ -79,7 +147,8 @@ const NavBar = () => {
                 ) : (
                   <li className="nav-item">
                     <a
-                      className="btn ml-3 btn-filled btn-rounded nav-item inner-link"
+                      className="btn ml-3 btn-filled btn-rounded nav-item "
+                      onClick={handleOpen}
                       href="#subscribe"
                     >
                       Mulai Ceritain

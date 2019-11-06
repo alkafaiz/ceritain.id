@@ -16,6 +16,16 @@ body {
   min-height: 100% !important;
 }
 
+@media screen and (max-width: 869px) {
+  /* .footer-contact ul.text-right {
+    text-align: left !important;
+  } */
+  .footer-contact ul li {
+    display: block;
+    padding-left: 4px !important;
+  }
+}
+
 .footer-item-text {
   font-size: 1.1em;
   font-family: "Lato";

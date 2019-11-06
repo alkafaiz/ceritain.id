@@ -11,9 +11,15 @@ class Subscribe extends Component {
       autoForceUpdate: this,
       element: message => (
         <div className="row">
-          <div className="col-sm-7 mb-sm-3 mx-auto text-center">
-            <span>{message}</span>
+          <div
+            className="alert alert-danger alert-dismissible mx-auto"
+            role="alert"
+          >
+            <h5 className="h5">{message}</h5>
           </div>
+          {/* <div className="col-sm-7 mb-sm-3 mx-auto text-center h3">
+            <span>{message}</span>
+          </div> */}
         </div>
       )
     });
@@ -42,6 +48,9 @@ class Subscribe extends Component {
     this.setState({ error: "" });
   };
 
+  submitted = () => {
+    this.setState({ isSubmitted: true });
+  };
   handleSubmit = event => {
     event.preventDefault();
     console.log(this.state);
@@ -58,7 +67,7 @@ class Subscribe extends Component {
         .catch(error => {
           this.setState({ error });
         });
-      this.setState({ isSubmitted: true });
+      this.submitted();
     } else {
       this.setState({ error: this.validator.getErrorMessages().email });
 
@@ -98,7 +107,7 @@ class Subscribe extends Component {
                       type="text"
                       name="email"
                       onChange={this.handleEmail}
-                      className="mb0 validate-email validate-required  signup-email-field"
+                      className="mb0"
                       placeholder="Tulis alamat email"
                     />
 

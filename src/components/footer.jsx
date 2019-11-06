@@ -17,7 +17,7 @@ class Footer extends Component {
             </a>
           </div>
 
-          <div className="col-sm-7 ">
+          <div className="col-sm-7 footer-contact">
             <ul className="contact-item color-white list-inline pt-2 text-right mb-0 ">
               <li className="list-inline-item">
                 <i className="ti ti-headphone-alt"></i>
