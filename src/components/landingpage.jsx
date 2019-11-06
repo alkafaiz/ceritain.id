@@ -13,14 +13,16 @@ class LandingPage extends Component {
     const entrance = true;
     return (
       <React.Fragment>
-        <img
+        {/* <img
           src={bgbannerHeader}
           className="responsive banner-bg col-11"
           alt=""
-        />
-        <main className="container fade-in-bottom">
+        /> */}
+        <header id="bg-hdr">
           <Header />
+        </header>
 
+        <main className="container fade-in-bottom">
           <Subscribe />
 
           <Content />
