@@ -97,24 +97,24 @@ class Subscribe extends Component {
             {/* <Grow in={intrance} timeout={1200} mountOnEnter>
               <h4 className="h4 color-primary">Tertarik untuk bercerita?</h4>
             </Grow> */}
-            <Grow in={true} timeout={1700} mountOnEnter>
-              <form
-                className={`form-newsletter ${addClass}`}
-                onSubmit={this.handleSubmit}
-              >
-                <input
-                  type="text"
-                  name="email"
-                  onChange={this.handleEmail}
-                  className="mb0"
-                  placeholder="Tulis alamat email"
-                />
+            {/* <Grow in={true} timeout={1700} mountOnEnter> */}
+            <form
+              className={`form-newsletter ${addClass}`}
+              onSubmit={this.handleSubmit}
+            >
+              <input
+                type="text"
+                name="email"
+                onChange={this.handleEmail}
+                className="mb0"
+                placeholder="Tulis alamat email"
+              />
 
-                <button type="submit" className="mb0 btn">
-                  Kabari aku!
-                </button>
-              </form>
-            </Grow>
+              <button type="submit" className="mb0 btn">
+                Kabari aku!
+              </button>
+            </form>
+            {/* </Grow> */}
           </React.Fragment>
         ) : (
           <div className="alert alert-success alert-dismissible" role="alert">
