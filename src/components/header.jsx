@@ -6,7 +6,7 @@ class Header extends Component {
   render() {
     return (
       <React.Fragment>
-        <section className="container p-3">
+        <section className="container pt-0 pl-4 pr-4">
           <div className="row v-align-children ">
             <div className="col-md-6">
               <img

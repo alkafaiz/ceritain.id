@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Slide from "@material-ui/core/Slide";
+import { SubscribeForm } from "./subscribe";
 
 //stateless functional component
 
@@ -64,7 +65,8 @@ const NavBar = () => {
               Yuk, jadi salah satu orang pertama untuk tau tentang peluncuran
               kita.
             </p>
-            <form>
+            <SubscribeForm />
+            {/* <form>
               <input
                 type="text"
                 name="email"
@@ -75,7 +77,7 @@ const NavBar = () => {
               <button type="submit" className="mb0 btn">
                 Kabari aku!
               </button>
-            </form>
+            </form> */}
           </div>
         </Slide>
       </Modal>
@@ -146,13 +148,12 @@ const NavBar = () => {
                   </React.Fragment>
                 ) : (
                   <li className="nav-item">
-                    <a
+                    <button
                       className="btn ml-3 btn-filled btn-rounded nav-item "
                       onClick={handleOpen}
-                      href="#subscribe"
                     >
                       Mulai Ceritain
-                    </a>
+                    </button>
                     {/* <Link
                       className="btn ml-3 btn-filled btn-rounded nav-item"
                       to={ROUTES.SIGN_IN}

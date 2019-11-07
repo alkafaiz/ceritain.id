@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { withFirebase } from "./firebase";
+import { withFirebase } from "../firebase";
 import SimpleReactValidator from "simple-react-validator";
-import ErrorMessage from "./errormessage";
+import ErrorMessage from "../errormessage";
 import { Grow, Slide } from "@material-ui/core";
 
 class Subscribe extends Component {
@@ -10,7 +10,7 @@ class Subscribe extends Component {
     this.validator = new SimpleReactValidator({
       autoForceUpdate: this,
       element: message => (
-        <div className="row">
+        <div className="row pt-3">
           <div
             className="alert alert-danger alert-dismissible mx-auto"
             role="alert"
@@ -84,60 +84,56 @@ class Subscribe extends Component {
   };
 
   render() {
-    const { error, isOpen, isSubmitted } = this.state;
+    const { error, isOpen, isSubmitted, show } = this.state;
+    const { addClass } = this.props;
     const actions = [{ text: "Close", onClick: this.close }];
     const intrance = true;
     return (
       <React.Fragment>
-        <div id="subscribe" className="row mb-sm-3 mt-sm-5 mb-2">
-          <div className="col-sm-9 mb-3 mx-auto text-center">
-            {isSubmitted === false ? (
-              <React.Fragment>
-                <Grow in={intrance} timeout={1200} mountOnEnter>
-                  <h4 className="h4 color-primary">
-                    Tertarik untuk bercerita?
-                  </h4>
-                </Grow>
-                <Grow in={intrance} timeout={1700} mountOnEnter>
-                  <form
-                    className="form-newsletter halves"
-                    onSubmit={this.handleSubmit}
-                  >
-                    <input
-                      type="text"
-                      name="email"
-                      onChange={this.handleEmail}
-                      className="mb0"
-                      placeholder="Tulis alamat email"
-                    />
-
-                    <button type="submit" className="mb0 btn">
-                      Kabari aku!
-                    </button>
-                  </form>
-                </Grow>
-              </React.Fragment>
-            ) : (
-              <div
-                className="alert alert-success alert-dismissible"
-                role="alert"
+        {/* <div id="subscribe" className="row mb-sm-3 mt-sm-5 mb-2">
+          <div className="col-sm-9 mb-3 mx-auto text-center"> */}
+        {isSubmitted === false ? (
+          <React.Fragment>
+            {/* <Grow in={intrance} timeout={1200} mountOnEnter>
+              <h4 className="h4 color-primary">Tertarik untuk bercerita?</h4>
+            </Grow> */}
+            <Grow in={true} timeout={1700} mountOnEnter>
+              <form
+                className={`form-newsletter ${addClass}`}
+                onSubmit={this.handleSubmit}
               >
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="alert"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
+                <input
+                  type="text"
+                  name="email"
+                  onChange={this.handleEmail}
+                  className="mb0"
+                  placeholder="Tulis alamat email"
+                />
+
+                <button type="submit" className="mb0 btn">
+                  Kabari aku!
                 </button>
-                <h4 className="h4">
-                  <i className="ti ti-check"></i>
-                  &nbsp;Terima kasih, tunggu kabar dari kita yaa
-                </h4>
-              </div>
-            )}
+              </form>
+            </Grow>
+          </React.Fragment>
+        ) : (
+          <div className="alert alert-success alert-dismissible" role="alert">
+            <button
+              type="button"
+              className="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 className="h4">
+              <i className="ti ti-check"></i>
+              &nbsp;Terima kasih, tunggu kabar dari kita yaa
+            </h4>
           </div>
-        </div>
+        )}
+        {/* </div>
+        </div> */}
         {this.validator.message(
           "email",
           this.state.email,

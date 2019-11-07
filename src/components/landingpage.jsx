@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "./header";
-import Subscribe from "./subscribe";
+import SubscribeSec from "./subscribe";
 import Content from "./content1";
 import bgbannerHeader from "../img/Asset 3.png";
 import { Grow } from "@material-ui/core";
@@ -23,7 +23,7 @@ class LandingPage extends Component {
         </header>
 
         <main className="container fade-in-bottom">
-          <Subscribe />
+          <SubscribeSec addClass="halves" />
 
           <Content />
         </main>
