@@ -3,67 +3,21 @@ import picDevice from "../img/Asset 18.png";
 import picCerita from "../img/Asset 19.png";
 import picMoodTrack from "../img/Asset 20.png";
 import picKonseling from "../img/Asset 21.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 class Content1 extends Component {
-  state = {
-    message: "",
-    class: "ti ti-angle-down bounce-top",
-    card1: "card text-center color-white",
-    card2: "card text-center color-white",
-    card3: "card text-center color-white"
-  };
-
-  getActive = (event, card) => {
-    event.preventDefault();
-  };
-
-  getClassIcon = () => {
-    const animate = this.state.class + " bounce-top";
-
-    this.setState({ class: animate });
-  };
-  changeMessage = (event, option) => {
-    if (option === "A") {
-      this.setState({
-        message: "this is A",
-        card1: "card text-center color-white active",
-        card2: "card text-center color-white ",
-        card3: "card text-center color-white "
-      });
-    } else if (option === "B") {
-      this.setState({
-        message: "this is B",
-        card2: "card text-center color-white active",
-        card1: "card text-center color-white ",
-        card3: "card text-center color-white "
-      });
-    } else {
-      this.setState({
-        message: "this is C",
-        card2: "card text-center color-white ",
-        card3: "card text-center color-white active",
-        card1: "card text-center color-white "
-      });
-    }
-    console.log("testing", this.state.message);
-    console.log("testing", option);
-    console.log("now", this.state.class);
-
-    event.preventDefault();
-  };
-
-  testing = (event, Ab) => {
-    event.preventDefault();
-    console.log("testing", Ab);
-  };
-
   render() {
     return (
       <React.Fragment>
         <div className="container">
           <div className="row mt-sm-5 mt-3">
             <div className="col-md-4 ">
-              <div className="card text-center color-white">
+              <div
+                data-aos="zoom-in-up"
+                data-aos-duration="1000"
+                className="card text-center color-white"
+              >
                 <div className="card-body">
                   <img
                     src={picCerita}
@@ -79,7 +33,12 @@ class Content1 extends Component {
               </div>
             </div>
             <div className="col-md-4">
-              <div className="card text-center color-white">
+              <div
+                data-aos="zoom-in-up"
+                data-aos-duration="1000"
+                data-aos-delay="250"
+                className="card text-center color-white"
+              >
                 <div className="card-body">
                   <img
                     src={picMoodTrack}
@@ -95,7 +54,12 @@ class Content1 extends Component {
               </div>
             </div>
             <div className="col-md-4">
-              <div className="card text-center color-white">
+              <div
+                data-aos="zoom-in-up"
+                data-aos-duration="1000"
+                data-aos-delay="250"
+                className="card text-center color-white"
+              >
                 <div className="card-body">
                   <img
                     src={picKonseling}
@@ -111,21 +75,20 @@ class Content1 extends Component {
               </div>
             </div>
           </div>
-          {this.setState.message !== "" ? (
-            <div className="row mt-sm-5 mt-5">
-              <div className="col-sm-10 mx-auto text-center">
-                <p className="h5 color-white">{this.state.message}</p>
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
 
           <div className="row v-align-children mt-sm-5 mt-4 pt-4">
-            <div className="col-md-7">
+            <div
+              data-aos="fade-up-right"
+              data-aos-duration="1000"
+              className="col-md-7"
+            >
               <img src={picDevice} alt="" className="responsive" />
             </div>
-            <div className="col-sm-5 v-align-ch">
+            <div
+              data-aos="fade-up-left"
+              data-aos-duration="1000"
+              className="col-sm-5 v-align-ch"
+            >
               <h2 className="big-text color-white">
                 Ceritain,<br></br> lebih dekat <br></br>lebih mudah.
               </h2>
@@ -136,7 +99,11 @@ class Content1 extends Component {
             </div>
           </div>
           <div className="row mt-sm-5 mt-4 pt-4">
-            <div className="col-sm-12 text-center mb40 mb-xs-24">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              className="col-sm-12 text-center mb40 mb-xs-24"
+            >
               <h2 className="h2 white">
                 Bersama ceritain, kamu bisa! Yuk #ceritainsini
               </h2>

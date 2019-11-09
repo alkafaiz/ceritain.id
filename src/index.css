@@ -51,6 +51,11 @@ code {
   background-image: url("../src/img/Asset 3.png");
 }
 
+.screen-center {
+  top: 50%;
+  left: 50%;
+}
+
 #bg-hdr {
   /* background-color: rgb(0, 0, 0, 0.5); */
   background-image: url("../src/img/Asset 3.png");

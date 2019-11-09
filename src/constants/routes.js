@@ -9,3 +9,4 @@ export const ABOUT = "/about";
 export const FAQ = "/faq";
 export const TnC = "/termandconditions";
 export const PASSWORD_CHANGE = "/change-password";
+export const NOT_FOUND = "*";

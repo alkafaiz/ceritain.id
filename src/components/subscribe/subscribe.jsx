@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { withFirebase } from "../firebase";
 import SimpleReactValidator from "simple-react-validator";
-import ErrorMessage from "../errormessage";
-import { Grow, Slide } from "@material-ui/core";
 
 class Subscribe extends Component {
   constructor(props) {
@@ -17,9 +15,6 @@ class Subscribe extends Component {
           >
             <h5 className="h5">{message}</h5>
           </div>
-          {/* <div className="col-sm-7 mb-sm-3 mx-auto text-center h3">
-            <span>{message}</span>
-          </div> */}
         </div>
       )
     });
@@ -53,8 +48,6 @@ class Subscribe extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
-
     if (this.validator.allValid()) {
       const { email } = this.state;
       const firebase = this.props.firebase;
@@ -72,9 +65,7 @@ class Subscribe extends Component {
       this.setState({ error: this.validator.getErrorMessages().email });
 
       this.validator.showMessages();
-      // rerender to show messages for the first time
-      // you can use the autoForceUpdate option to do this automatically`
-      //this.forceUpdate();
+      this.forceUpdate();
     }
   };
 
@@ -84,20 +75,12 @@ class Subscribe extends Component {
   };
 
   render() {
-    const { error, isOpen, isSubmitted, show } = this.state;
+    const { isSubmitted } = this.state;
     const { addClass } = this.props;
-    const actions = [{ text: "Close", onClick: this.close }];
-    const intrance = true;
     return (
       <React.Fragment>
-        {/* <div id="subscribe" className="row mb-sm-3 mt-sm-5 mb-2">
-          <div className="col-sm-9 mb-3 mx-auto text-center"> */}
         {isSubmitted === false ? (
           <React.Fragment>
-            {/* <Grow in={intrance} timeout={1200} mountOnEnter>
-              <h4 className="h4 color-primary">Tertarik untuk bercerita?</h4>
-            </Grow> */}
-            {/* <Grow in={true} timeout={1700} mountOnEnter> */}
             <form
               className={`form-newsletter ${addClass}`}
               onSubmit={this.handleSubmit}
@@ -114,7 +97,6 @@ class Subscribe extends Component {
                 Kabari aku!
               </button>
             </form>
-            {/* </Grow> */}
           </React.Fragment>
         ) : (
           <div className="alert alert-success alert-dismissible" role="alert">
@@ -132,24 +114,13 @@ class Subscribe extends Component {
             </h4>
           </div>
         )}
-        {/* </div>
-        </div> */}
+
         {this.validator.message(
           "email",
           this.state.email,
           "required|email",
           this.validator.element
         )}
-        {/* <div className="srv-validation-message">
-          {this.validator.getErrorMessages}
-        </div> */}
-        {/* {this.validator.getErrorMessages && (
-          <div className="row">
-            <div className="col-sm-7 mb-sm-3 mx-auto text-center">
-              <ErrorMessage message={error} />
-            </div>
-          </div>
-        )} */}
       </React.Fragment>
     );
   }

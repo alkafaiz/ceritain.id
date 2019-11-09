@@ -8,13 +8,19 @@ import About from "./components/about";
 import FAQ from "./components/faq";
 import SignIn from "./components/signin";
 import SignUp from "./components/signup";
+import NotFound from "./components/notfound";
 import ForgetPw from "./components/forgetpw";
 import ChangePw from "./components/changepw";
 import AdminPage from "./components/admin";
 import HomePage, { AccountPage } from "./components/account";
 import * as ROUTES from "./constants/routes";
 
-import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  withRouter,
+  Switch
+} from "react-router-dom";
 import { FirebaseContext, withFirebase } from "./components/firebase";
 import { compose } from "recompose";
 import { withAuthentication } from "./components/session";
@@ -43,17 +49,19 @@ class App extends React.Component {
       <React.Fragment>
         <Router>
           <NavBar />
-
-          <Route exact path={ROUTES.LANDING} component={LandingPage} />
-          <Route path={ROUTES.HOME} component={HomePage} />
-          <Route path={ROUTES.ABOUT} component={About} />
-          <Route path={ROUTES.FAQ} component={FAQ} />
-          {/* <Route path={ROUTES.SIGN_IN} component={SignInForm} />
+          <Switch>
+            <Route exact path={ROUTES.LANDING} component={LandingPage} />
+            <Route path={ROUTES.HOME} component={HomePage} />
+            <Route path={ROUTES.ABOUT} component={About} />
+            <Route path={ROUTES.FAQ} component={FAQ} />
+            {/* <Route path={ROUTES.SIGN_IN} component={SignInForm} />
           <Route path={ROUTES.SIGN_UP} component={SignUpForm} />
           <Route path={ROUTES.PASSWORD_FORGET} component={ForgetPw} />
           <Route path={ROUTES.PASSWORD_CHANGE} component={ChangePw} />
           <Route path={ROUTES.ACCOUNT} component={AccountPage} />
           <Route path={ROUTES.ADMIN} component={AdminPage} /> */}
+            <Route component={NotFound} />
+          </Switch>
           <Footer />
         </Router>
       </React.Fragment>

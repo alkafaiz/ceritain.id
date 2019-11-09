@@ -2,27 +2,19 @@ import React, { Component } from "react";
 import Header from "./header";
 import SubscribeSec from "./subscribe";
 import Content from "./content1";
-import bgbannerHeader from "../img/Asset 3.png";
-import { Grow } from "@material-ui/core";
 
 class LandingPage extends Component {
   componentDidMount() {
     document.title = "Hallo! - Ceritain.id";
   }
   render() {
-    const entrance = true;
     return (
       <React.Fragment>
-        {/* <img
-          src={bgbannerHeader}
-          className="responsive banner-bg col-11"
-          alt=""
-        /> */}
         <header id="bg-hdr" className="fade-in-up">
           <Header />
         </header>
 
-        <main className="container fade-in-bottom">
+        <main className="container ">
           <SubscribeSec addClass="halves" />
 
           <Content />
