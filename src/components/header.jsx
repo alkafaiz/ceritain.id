@@ -17,8 +17,8 @@ class Header extends Component {
             </div>
             <div className="col-md-6 v-align-ch">
               <h1 className="mt-sm-5 big-text h2 color-primary">
-                Bayangin deh,<br></br>beratnya beban yang harus kamu pendam
-                sendiri
+                Bayangin deh,<br></br>&nbsp;beratnya beban yang harus kamu
+                pendam sendiri
               </h1>
               <p className="lead mb40 gray">
                 Kenapa harus dipendam kalau bisa diceritain? Ringankan beban
