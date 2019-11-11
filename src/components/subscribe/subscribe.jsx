@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import { withFirebase } from "../firebase";
 import SimpleReactValidator from "simple-react-validator";
 
+const labelForm = () => {
+  return (
+    <h4 className="h4 color-primary mb-3 mb-sm-4">Tertarik untuk bercerita?</h4>
+  );
+};
+
 class Subscribe extends Component {
   constructor(props) {
     super(props);
@@ -76,11 +82,17 @@ class Subscribe extends Component {
 
   render() {
     const { isSubmitted } = this.state;
-    const { addClass } = this.props;
+    const { addClass, displayLabel } = this.props;
     return (
       <React.Fragment>
         {isSubmitted === false ? (
           <React.Fragment>
+            {displayLabel === true ? (
+              <h4 className="h4 color-primary mb-3 mb-sm-4">
+                Tertarik untuk bercerita?
+              </h4>
+            ) : null}
+            <labelForm />
             <form
               className={`form-newsletter ${addClass}`}
               onSubmit={this.handleSubmit}
