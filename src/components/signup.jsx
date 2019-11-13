@@ -1,8 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { TnC, LANDING } from "../constants/routes";
+import * as ROLES from "../constants/routes";
 import ErrorMessage from "./errormessage";
-import { Grow } from "@material-ui/core";
+import { Grow, Switch, FormControlLabel } from "@material-ui/core";
+
+const INITIAL_STATE = {
+  username: "",
+  email: "",
+  passwordOne: "",
+  passwordTwo: "",
+  isAdmin: false,
+  error: null
+};
 
 class SignUp extends Component {
   constructor(props) {
@@ -12,22 +22,19 @@ class SignUp extends Component {
       email: "",
       passwordOne: "",
       passwordTwo: "",
-      error: null
+      isAdmin: false,
+      error: null,
+      checkedAdmin: true
     };
   }
-  resetstate = () => {
-    this.setState({
-      username: "",
-      email: "",
-      passwordOne: "",
-      passwordTwo: "",
-      error: null
-    });
-  };
 
   onSubmit = event => {
     event.preventDefault();
-    const { username, email, passwordOne } = this.state;
+    const { username, email, passwordOne, isAdmin } = this.state;
+    const roles = {};
+    if (isAdmin) {
+      roles[ROLES.ADMIN] = ROLES.ADMIN;
+    }
     const firebase = this.props.firebase;
     firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
@@ -35,10 +42,10 @@ class SignUp extends Component {
         //create user in firebase database
         return this.props.firebase
           .user(authUser.user.uid)
-          .set({ username, email });
+          .set({ username, email, roles });
       })
       .then(authUser => {
-        /***this.resetstate();*/
+        this.setState({ ...INITIAL_STATE });
         this.props.history.push(LANDING);
       })
       .catch(error => {
@@ -54,8 +61,19 @@ class SignUp extends Component {
   componentDidMount() {
     document.title = "Register - Ceritain.id";
   }
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.checked });
+  };
   render() {
-    const { username, email, passwordOne, passwordTwo, error } = this.state;
+    const {
+      username,
+      email,
+      passwordOne,
+      passwordTwo,
+      isAdmin,
+      checkedAdmin,
+      error
+    } = this.state;
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === "" ||
@@ -107,6 +125,18 @@ class SignUp extends Component {
                     onChange={this.onChange}
                     placeholder="Confirm Password"
                   />
+                  <FormControlLabel
+                    control={
+                      <Switch
+                        value="checkedAdmin"
+                        checked={checkedAdmin}
+                        onChange={this.handleChange("checkedAdmin")}
+                        inputProps={{ "aria-label": "secondary checkbox" }}
+                      />
+                    }
+                    label="Admin"
+                  />
+
                   <button
                     className="btn mb8 color-white"
                     type="submit"
