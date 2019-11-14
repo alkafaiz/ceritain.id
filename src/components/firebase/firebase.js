@@ -1,6 +1,7 @@
 import app from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
+import { identifier } from "@babel/types";
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -45,6 +46,33 @@ class Firebase {
   //*** Potential User API */
   email_pUserRef = () => this.db.ref("potentialUsers");
   email_pUsers = () => this.db.ref("potentialUsers");
+
+  //*** Merge Auth and DB User API */
+  onAuthUserListener = (next, fallback) =>
+  this.auth.onAuthStateChanged(authUser=>{
+    if(authUser){
+      this.user(authUser.uid).once('value')
+      .then(snapshot =>{
+        const dbUser = snapshot.val();
+
+        //default empty roles
+        if(!dbUser.roles){
+          dbUser.roles={}
+        }
+        //merge auth and dbUser
+        authUser={
+          uid:authUser.uid,
+          email: authUser.email,
+          ...dbUser,
+        }
+
+        next(authUser)
+
+      })
+    }else{
+      fallback();
+    }
+  })
 }
 
 export default Firebase;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { TnC, LANDING } from "../constants/routes";
-import * as ROLES from "../constants/routes";
+import * as ROLES from "../constants/roles";
 import ErrorMessage from "./errormessage";
 import { Grow, Switch, FormControlLabel } from "@material-ui/core";
 
@@ -35,6 +35,7 @@ class SignUp extends Component {
     if (isAdmin) {
       roles[ROLES.ADMIN] = ROLES.ADMIN;
     }
+    console.log(roles);
     const firebase = this.props.firebase;
     firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
@@ -128,10 +129,11 @@ class SignUp extends Component {
                   <FormControlLabel
                     control={
                       <Switch
-                        value="checkedAdmin"
-                        checked={checkedAdmin}
-                        onChange={this.handleChange("checkedAdmin")}
-                        inputProps={{ "aria-label": "secondary checkbox" }}
+                        value="isAdmin"
+                        checked={isAdmin}
+                        onChange={this.handleChange("isAdmin")}
+                        color="primary"
+                        inputProps={{ "aria-label": "primary checkbox" }}
                       />
                     }
                     label="Admin"
