@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import logodark from "./logo-dark.png";
 import "../App.css";
 import { Link, NavLink } from "react-router-dom";
@@ -14,7 +14,15 @@ import { SubscribeForm } from "./subscribe";
 
 //stateless functional component
 
-const NavBar = () => {
+class NavBar extends Component {
+  render() {
+    return <NavBarComponent />;
+  }
+}
+
+export default NavBar;
+
+const NavBarComponent = openModal => {
   const useStyles = makeStyles(theme => ({
     modal: {
       display: "flex",
@@ -34,7 +42,7 @@ const NavBar = () => {
     }
   }));
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const handleOpen = () => {
     setOpen(true);
   };
@@ -170,5 +178,3 @@ const NavBar = () => {
     </React.Fragment>
   );
 };
-
-export default NavBar;
