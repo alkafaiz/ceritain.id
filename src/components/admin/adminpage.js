@@ -12,29 +12,8 @@ const AdminPage = () => {
 };
 
 class TableUsers extends Component {
-  state = {
-    columns: [
-      { title: "Name", field: "name" },
-      { title: "Surname", field: "surname" },
-      { title: "Birth Year", field: "birthYear", type: "numeric" },
-      {
-        title: "Birth Place",
-        field: "birthCity",
-        lookup: { 34: "İstanbul", 63: "Şanlıurfa" }
-      }
-    ],
-    data: [
-      { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
-      {
-        name: "Zerya Betül",
-        surname: "Baran",
-        birthYear: 2017,
-        birthCity: 34
-      }
-    ]
-  };
   render() {
-    const { columns, data } = this.state;
+    const { theData, loading } = this.props;
 
     return (
       <div className="container">
@@ -42,19 +21,12 @@ class TableUsers extends Component {
           <MaterialTable
             columns={[
               { title: "Timestamp", field: "timestamp", type: "datetime" },
+              { title: "User ID", field: "uid" },
               { title: "Email", field: "email" }
             ]}
-            data={[
-              {
-                timestamp: "2019-11-11 16:35:49",
-                email: "nadiaevania3@gmail.com"
-              },
-              {
-                timestamp: "2019-11-11 14:23:49",
-                email: "test@gmail.com"
-              }
-            ]}
+            data={theData}
             title="Potential Users"
+            isLoading={loading}
           />
         </div>
       </div>

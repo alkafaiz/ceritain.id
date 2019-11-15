@@ -22,7 +22,51 @@ class NavBar extends Component {
 
 export default NavBar;
 
-const NavBarComponent = openModal => {
+const NavigationNonAuth = () => {
+  return (
+    <React.Fragment>
+      <li className="nav-item">
+        <NavLink to={ROUTES.LANDING} exact className="nav-link ml-3">
+          Home
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink to={ROUTES.ABOUT} className="nav-link ml-3">
+          Tentang Ceritain
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink to={ROUTES.FAQ} className="nav-link ml-3">
+          FAQ
+        </NavLink>
+      </li>
+    </React.Fragment>
+  );
+};
+
+const NavigationAuth = () => {
+  return (
+    <React.Fragment>
+      <li className="nav-item">
+        <NavLink to={ROUTES.LANDING} exact className="nav-link ml-3">
+          Home
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink to={ROUTES.ABOUT} className="nav-link ml-3">
+          Tentang Ceritain
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink to={ROUTES.FAQ} className="nav-link ml-3">
+          FAQ
+        </NavLink>
+      </li>
+    </React.Fragment>
+  );
+};
+
+const NavBarComponent = () => {
   const useStyles = makeStyles(theme => ({
     modal: {
       display: "flex",
@@ -74,18 +118,6 @@ const NavBarComponent = openModal => {
               kita.
             </p>
             <SubscribeForm />
-            {/* <form>
-              <input
-                type="text"
-                name="email"
-                className="mb0"
-                placeholder="Tulis alamat email"
-              />
-
-              <button type="submit" className="mb0 btn">
-                Kabari aku!
-              </button>
-            </form> */}
           </div>
         </Slide>
       </Modal>
@@ -114,22 +146,8 @@ const NavBarComponent = openModal => {
           id="navbarTogglerDemo02"
         >
           <ul className="navbar-nav mt-2 mt-lg-0 menu-item-list">
-            <li className="nav-item">
-              <NavLink to={ROUTES.LANDING} exact className="nav-link ml-3">
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink to={ROUTES.ABOUT} className="nav-link ml-3">
-                Tentang Ceritain
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink to={ROUTES.FAQ} className="nav-link ml-3">
-                FAQ
-              </NavLink>
-            </li>
-
+            //***NavigationNonAuth */
+            <NavigationNonAuth />
             <AuthUserContext.Consumer>
               {authUser =>
                 authUser ? (

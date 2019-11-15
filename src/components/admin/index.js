@@ -19,10 +19,14 @@ class AdminPage extends Component {
     this.setState({ loading: true });
     this.props.firebase.email_pUserRef().on("value", snapshot => {
       const pUsersObject = snapshot.val();
+      console.log("pUsersObject", pUsersObject);
       const pUsersList = Object.keys(pUsersObject).map(key => ({
-        ...pUsersObject[key],
-        uid: key
+        timestamp: pUsersObject[key].date,
+        uid: key,
+        email: pUsersObject[key].email
       }));
+      console.log("pUsersList", pUsersList);
+
       this.setState({
         potentialUser: pUsersList
       });
@@ -48,15 +52,20 @@ class AdminPage extends Component {
   render() {
     console.log(this.state);
     const { users, loading, potentialUser } = this.state;
+
     return (
       <div>
-        <h1>Admin</h1>
-        {loading && <div>Loading ...</div>}
-        <UserList users={users} />
-        <br></br>
-        <PotentialUserList pUsers={potentialUser} />
-        <br></br>
-        <TableUsers />
+        {/* <h1>Admin</h1>
+        {loading && <div>Loading ...</div>} */}
+        <div className="container mt-3">
+          <hr></hr>
+          <h4 className="bold color-primary">Admin</h4>
+          <div className="row"></div>
+        </div>
+        {/* <UserList users={users} />
+        <br></br> */}
+
+        <TableUsers theData={potentialUser} loading={loading} />
       </div>
     );
   }
@@ -98,7 +107,4 @@ const PotentialUserList = ({ pUsers }) => (
 
 const condition = authUser => authUser && !!authUser.roles[ROLES.ADMIN];
 
-export default compose(
-  withAuthorization(condition),
-  withFirebase
-)(AdminPage);
+export default compose(withAuthorization(condition), withFirebase)(AdminPage);
