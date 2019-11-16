@@ -3,6 +3,7 @@ import logodark from "./logo-dark.png";
 import "../App.css";
 import { Link, NavLink } from "react-router-dom";
 import * as ROUTES from "../constants/routes";
+import * as ROLES from "../constants/roles";
 import SignOutButton from "./signout";
 import { AuthUserContext } from "./session";
 import Modal from "@material-ui/core/Modal";
@@ -146,28 +147,33 @@ const NavBarComponent = () => {
           id="navbarTogglerDemo02"
         >
           <ul className="navbar-nav mt-2 mt-lg-0 menu-item-list">
-            //***NavigationNonAuth */
+            {/* NavigationNonAuth */}
             <NavigationNonAuth />
+            {/* NavigationAuth */}
             <AuthUserContext.Consumer>
               {authUser =>
                 authUser ? (
                   <React.Fragment>
-                    <li className="nav-item">
-                      <Link
-                        className="btn ml-3 btn-filled btn-rounded nav-item"
-                        to={ROUTES.HOME}
-                      >
+                    {/* Uncomment this code to proceed with prod app, this is
+                    only for panel admin in landing page */}
+                    {/* <li className="nav-item">
+                      <NavLink to={ROUTES.HOME} className="nav-link ml-3">
                         Home Page
-                      </Link>
+                      </NavLink>
                     </li>
                     <li className="nav-item">
-                      <Link
-                        className="btn ml-3 btn-filled btn-rounded nav-item"
-                        to={ROUTES.ACCOUNT}
-                      >
+                      <NavLink to={ROUTES.ACCOUNT} className="nav-link ml-3">
                         Account
-                      </Link>
-                    </li>
+                      </NavLink>
+                    </li> */}
+                    {authUser.roles[ROLES.ADMIN] && (
+                      <li className="nav-item">
+                        <NavLink to={ROUTES.ADMIN} className="nav-link ml-3">
+                          Admin Panel
+                        </NavLink>
+                      </li>
+                    )}
+
                     <li className="nav-item">
                       <SignOutButton />
                     </li>

@@ -35,15 +35,9 @@ class App extends React.Component {
   };
 
   render() {
-    const SignUpForm = compose(
-      withRouter,
-      withFirebase
-    )(SignUp);
+    const SignUpForm = compose(withRouter, withFirebase)(SignUp);
 
-    const SignInForm = compose(
-      withRouter,
-      withFirebase
-    )(SignIn);
+    const SignInForm = compose(withRouter, withFirebase)(SignIn);
 
     return (
       <React.Fragment>
@@ -55,10 +49,10 @@ class App extends React.Component {
             <Route path={ROUTES.ABOUT} component={About} />
             <Route path={ROUTES.FAQ} component={FAQ} />
             <Route path={ROUTES.SIGN_IN} component={SignInForm} />
-            <Route path={ROUTES.SIGN_UP} component={SignUpForm} />
+            {/* <Route path={ROUTES.SIGN_UP} component={SignUpForm} />
             <Route path={ROUTES.PASSWORD_FORGET} component={ForgetPw} />
             <Route path={ROUTES.PASSWORD_CHANGE} component={ChangePw} />
-            <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+            <Route path={ROUTES.ACCOUNT} component={AccountPage} /> */}
             <Route path={ROUTES.ADMIN} component={AdminPage} />
             <Route component={NotFound} />
           </Switch>
