@@ -30,6 +30,7 @@ class SignIn extends Component {
       .doSignInWithEmailAndPassword(email, password)
       .then(authUser => {
         /***this.resetstate();*/
+        // authUser.roles[ROLES.ADMIN] ? this.props.history.push(ROUTES.ADMIN) :
         this.props.history.push(ROUTES.HOME);
       })
       .catch(error => {
