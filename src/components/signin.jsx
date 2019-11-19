@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import * as ROUTES from "../constants/routes";
+import * as ROLES from "../constants/roles";
+
+const INITIAL_STATE = {
+  email: "",
+  password: "",
+  error: null
+};
 
 class SignIn extends Component {
   constructor(props) {
@@ -29,9 +36,11 @@ class SignIn extends Component {
     firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(authUser => {
-        /***this.resetstate();*/
-        // authUser.roles[ROLES.ADMIN] ? this.props.history.push(ROUTES.ADMIN) :
-        this.props.history.push(ROUTES.HOME);
+        this.setState({ ...INITIAL_STATE });
+        console.log({ authUser });
+        authUser.roles[ROLES.ADMIN]
+          ? this.props.history.push(ROUTES.ADMIN)
+          : this.props.history.push(ROUTES.HOME);
       })
       .catch(error => {
         this.setState({ error });
