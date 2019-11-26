@@ -72,7 +72,6 @@ class SignUp extends Component {
       passwordOne,
       passwordTwo,
       isAdmin,
-      checkedAdmin,
       error
     } = this.state;
     const isInvalid =

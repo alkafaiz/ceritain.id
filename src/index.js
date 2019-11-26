@@ -7,10 +7,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./css/theme.css";
 import "./css/custom.css";
 import Firebase, { FirebaseContext } from "./components/firebase";
-import ComingSoon from "./ComingSoon";
 
 ReactDOM.render(
-  /*<ComingSoon />*/
   <FirebaseContext.Provider value={new Firebase()}>
     <App />
   </FirebaseContext.Provider>,

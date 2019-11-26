@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
 import { withFirebase } from "../firebase";
 import * as ROUTES from "../../constants/routes";
-import * as ROLES from "../../constants/roles";
+
 import AuthUserContext from "./context";
 
 const withAuthorization = condition => Component => {
@@ -32,10 +32,7 @@ const withAuthorization = condition => Component => {
       );
     }
   }
-  return compose(
-    withRouter,
-    withFirebase
-  )(WithAuthorization);
+  return compose(withRouter, withFirebase)(WithAuthorization);
 };
 
 export default withAuthorization;

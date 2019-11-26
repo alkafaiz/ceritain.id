@@ -19,13 +19,12 @@ class AdminPage extends Component {
     this.setState({ loading: true });
     this.props.firebase.email_pUserRef().on("value", snapshot => {
       const pUsersObject = snapshot.val();
-      console.log("pUsersObject", pUsersObject);
+
       const pUsersList = Object.keys(pUsersObject).map(key => ({
         timestamp: pUsersObject[key].date,
         uid: key,
         email: pUsersObject[key].email
       }));
-      console.log("pUsersList", pUsersList);
 
       this.setState({
         potentialUser: pUsersList
@@ -50,19 +49,15 @@ class AdminPage extends Component {
     this.props.firebase.users().off();
   }
   render() {
-    const { users, loading, potentialUser } = this.state;
+    const { loading, potentialUser } = this.state;
 
     return (
       <div>
-        {/* <h1>Admin</h1>
-        {loading && <div>Loading ...</div>} */}
         <div className="container mt-3">
           <hr></hr>
           <h4 className="bold color-primary">Admin</h4>
           <div className="row"></div>
         </div>
-        {/* <UserList users={users} />
-        <br></br> */}
 
         <TableUsers theData={potentialUser} loading={loading} />
       </div>
@@ -70,39 +65,24 @@ class AdminPage extends Component {
   }
 }
 
-const UserList = ({ users }) => (
-  <ul>
-    {users.map(user => (
-      <li key={user.uid}>
-        <span>
-          <strong>ID:</strong> {user.uid}
-        </span>
-        <span>
-          <strong>Email:</strong> {user.email}
-        </span>
-        <span>
-          <strong>Username:</strong> {user.username}
-        </span>
-      </li>
-    ))}
-  </ul>
-);
-
-const PotentialUserList = ({ pUsers }) => (
-  <React.Fragment>
-    <h1>Potential Users</h1>
-    <ul>
-      {pUsers.map(pUser => (
-        <li key={pUser.uid}>
-          <span>
-            <strong>Email:</strong> {pUser.email}
-            <strong>Date:</strong> {pUser.date}
-          </span>
-        </li>
-      ))}
-    </ul>
-  </React.Fragment>
-);
+//for showing registered user via firebase auth
+// const UserList = ({ users }) => (
+//   <ul>
+//     {users.map(user => (
+//       <li key={user.uid}>
+//         <span>
+//           <strong>ID:</strong> {user.uid}
+//         </span>
+//         <span>
+//           <strong>Email:</strong> {user.email}
+//         </span>
+//         <span>
+//           <strong>Username:</strong> {user.username}
+//         </span>
+//       </li>
+//     ))}
+//   </ul>
+// );
 
 const condition = authUser => authUser && !!authUser.roles[ROLES.ADMIN];
 

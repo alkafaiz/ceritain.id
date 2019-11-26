@@ -3,7 +3,7 @@ import picDevice from "../img/Asset 18.png";
 import picCerita from "../img/Asset 19.png";
 import picMoodTrack from "../img/Asset 20.png";
 import picKonseling from "../img/Asset 21.png";
-import AOS from "aos";
+
 import "aos/dist/aos.css";
 
 class Content1 extends Component {

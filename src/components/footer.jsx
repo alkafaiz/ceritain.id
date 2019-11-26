@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import logolight from "../img/logo-light.png";
+import { Link } from "react-router-dom";
+import { LANDING } from "../constants/routes";
 
 class Footer extends Component {
   state = {};
@@ -8,13 +10,13 @@ class Footer extends Component {
       <footer className="mb-5 pr-3 pl-3 pr-sm-5 pl-sm-5">
         <div className="row">
           <div className="col-sm-5">
-            <a className="navbar-brand">
+            <Link to={LANDING} className="navbar-brand">
               <img
                 src={logolight}
                 className="responsive logo-footer"
                 alt="Ceritain.id | Official logo"
               />
-            </a>
+            </Link>
           </div>
 
           <div className="col-sm-7 footer-contact">

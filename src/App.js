@@ -9,10 +9,10 @@ import FAQ from "./components/faq";
 import SignIn from "./components/signin";
 import SignUp from "./components/signup";
 import NotFound from "./components/notfound";
-import ForgetPw from "./components/forgetpw";
-import ChangePw from "./components/changepw";
+// import ForgetPw from "./components/forgetpw";
+// import ChangePw from "./components/changepw";
 import AdminPage from "./components/admin";
-import HomePage, { AccountPage } from "./components/account";
+import HomePage from "./components/account";
 import * as ROUTES from "./constants/routes";
 
 import {
@@ -35,7 +35,7 @@ class App extends React.Component {
   };
 
   render() {
-    const SignUpForm = compose(withRouter, withFirebase)(SignUp);
+    // const SignUpForm = compose(withRouter, withFirebase)(SignUp);
 
     const SignInForm = compose(withRouter, withFirebase)(SignIn);
 

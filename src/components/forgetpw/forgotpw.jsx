@@ -18,7 +18,7 @@ class ForgotPw extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const { username, email } = this.state;
+    const { email } = this.state;
     const firebase = this.props.firebase;
     firebase
       .doPasswordReset(email)

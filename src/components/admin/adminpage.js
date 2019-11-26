@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import MaterialTable from "material-table";
-import * as ROLES from "../../constants/roles";
 
 const AdminPage = () => {
   return (

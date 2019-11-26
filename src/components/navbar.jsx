@@ -9,7 +9,6 @@ import { AuthUserContext } from "./session";
 import Modal from "@material-ui/core/Modal";
 import { makeStyles } from "@material-ui/core/styles";
 import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
 import Slide from "@material-ui/core/Slide";
 import { SubscribeForm } from "./subscribe";
 
@@ -45,27 +44,27 @@ const NavigationNonAuth = () => {
   );
 };
 
-const NavigationAuth = () => {
-  return (
-    <React.Fragment>
-      <li className="nav-item">
-        <NavLink to={ROUTES.LANDING} exact className="nav-link ml-3">
-          Home
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink to={ROUTES.ABOUT} className="nav-link ml-3">
-          Tentang Ceritain
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink to={ROUTES.FAQ} className="nav-link ml-3">
-          FAQ
-        </NavLink>
-      </li>
-    </React.Fragment>
-  );
-};
+// const NavigationAuth = () => {
+//   return (
+//     <React.Fragment>
+//       <li className="nav-item">
+//         <NavLink to={ROUTES.LANDING} exact className="nav-link ml-3">
+//           Home
+//         </NavLink>
+//       </li>
+//       <li className="nav-item">
+//         <NavLink to={ROUTES.ABOUT} className="nav-link ml-3">
+//           Tentang Ceritain
+//         </NavLink>
+//       </li>
+//       <li className="nav-item">
+//         <NavLink to={ROUTES.FAQ} className="nav-link ml-3">
+//           FAQ
+//         </NavLink>
+//       </li>
+//     </React.Fragment>
+//   );
+// };
 
 const NavBarComponent = () => {
   const useStyles = makeStyles(theme => ({

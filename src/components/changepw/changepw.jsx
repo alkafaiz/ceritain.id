@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import * as ROUTES from "../../constants/routes";
+// import { Link } from "react-router-dom";
+// import * as ROUTES from "../../constants/routes";
 import { withFirebase } from "../firebase";
 
 const INITIAL_STATE = {
@@ -19,7 +19,7 @@ class ChangePw extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const { passwordOne, passwordTwo } = this.state;
+    const { passwordOne } = this.state;
     const firebase = this.props.firebase;
     firebase
       .doPasswordUpdate(passwordOne)
